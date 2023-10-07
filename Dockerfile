@@ -122,6 +122,7 @@ RUN go build -o bin/app cmd/sponsors-api/main.go
 # https://github.com/GoogleContainerTools/distroless#debug-images
 FROM gcr.io/distroless/base-debian11:debug as app
 COPY --from=builder /app/bin/app /app/
+COPY --from=builder /app/LICENSE /app/
 WORKDIR /app
 
 # Must comply to vector form
