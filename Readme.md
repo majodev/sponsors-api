@@ -96,17 +96,21 @@ The following environment variables are supported:
 
 ### `/markdown`
 
+> e.g. https://sponsors.mranftl.com/markdown
+
 Visit the `/markdown` path for the markdown to copy/paste into readmes.
 
 ### `/json`
+
+> e.g. https://sponsors.mranftl.com/json
 
 ```json
 {
     "login": "your_username",
     "sponsors": [
         {
-            "login": "your_sponsor",
-            "url": "https://..."
+            "login": "sponsor_username",
+            "url": "sponsor_picture.png"
         },
         [...]
     ]
@@ -115,6 +119,8 @@ Visit the `/markdown` path for the markdown to copy/paste into readmes.
 
 ### `/txt`
 
+> e.g. https://sponsors.mranftl.com/txt
+
 List in the following format:
 ```txt
 <login> <url>
@@ -122,4 +128,6 @@ List in the following format:
 
 ### `/`
 
-Serves a minimal HTML with sponsors images + links to the sponsor profiles
+> e.g. https://sponsors.mranftl.com
+
+Serves a minimal HTML with sponsors images + links to the sponsor profiles. Mostly useful for debugging.
