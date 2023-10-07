@@ -9,7 +9,7 @@
     - [`/`](#)
 
 
-Sponsors API is a [GitHub Sponsors](https://github.com/sponsors) server for displaying your current sponsor avatars in your project Readme. It looks like this:
+Sponsors API is a [GitHub Sponsors](https://github.com/sponsors) server for displaying **your current sponsor avatars** in your project Readme. It looks like this:
 
 [<img src="https://sponsors.mranftl.com/avatar/0" width="35">](https://sponsors.mranftl.com/profile/0)
 [<img src="https://sponsors.mranftl.com/avatar/1" width="35">](https://sponsors.mranftl.com/profile/1)
@@ -83,25 +83,20 @@ Sponsors API is a [GitHub Sponsors](https://github.com/sponsors) server for disp
 
 ## Deploying
 
-We build and publish a minimal docker image via GitHub Actions.
+We build and publish a minimal docker image via GitHub Actions. See [Packages](https://github.com/majodev/sponsors-api/pkgs/container/sponsors-api) `docker pull ghcr.io/majodev/sponsors-api:<tag>`.
 
 The following environment variables are supported:
 
-- `GITHUB_TOKEN` the GitHub API token (org read scope is required)
-- `PORT` the server port (defaults to 3000)
-- `URL` the url to your endpoint such as "https://sponsors.myhost.com" (optional)
+- `GITHUB_TOKEN` the (classic!) GitHub API token (the `'read:org'` scope is required)
+- `PORT` the server port (defaults to `3000`)
+- `URL` the url to your endpoint such as `https://sponsors.mranftl.com` (optional)
 - `CACHE_TTL` the cache TTL (go duration, sponsors are cached for an hour by default (`1h`))
 
 ## Usage
 
-* Visit the `/markdown` path for the markdown to copy/paste into readmes
-* For convenience, the following additional debug endpoints are provided:
-  * `/` serves a minimal HTML with imgs and links to the sponsor profiles
-  * `/json` serves the current sponsors as JSON like this: ``````
-
 ### `/markdown`
 
-Visit the `/markdown` path for the markdown to copy/paste into readmes
+Visit the `/markdown` path for the markdown to copy/paste into readmes.
 
 ### `/json`
 
