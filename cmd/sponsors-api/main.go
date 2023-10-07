@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"flag"
 	"log"
 	"net/http"
 	"os"
@@ -12,12 +11,11 @@ import (
 	"github.com/tj/go/env"
 	"golang.org/x/oauth2"
 
-	sponsors "github.com/tj/sponsors-api"
+	sponsors "github.com/majodev/sponsors-api"
 )
 
 func main() {
-	cacheTTL := flag.String("cache-ttl", "1h", "Sponsor cache duration")
-	flag.Parse()
+	cacheTTL := env.GetDefault("CACHE_TTL", "1h")
 
 	src := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: os.Getenv("GITHUB_TOKEN")},
@@ -25,7 +23,7 @@ func main() {
 	httpClient := oauth2.NewClient(context.Background(), src)
 	client := githubv4.NewClient(httpClient)
 
-	ttl, err := time.ParseDuration(*cacheTTL)
+	ttl, err := time.ParseDuration(cacheTTL)
 	if err != nil {
 		log.Fatalf("error parsing cache ttl: %s", err)
 	}

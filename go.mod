@@ -1,4 +1,4 @@
-module github.com/tj/sponsors-api
+module github.com/majodev/sponsors-api
 
 go 1.12
 

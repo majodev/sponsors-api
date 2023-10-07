@@ -1,3 +1,5 @@
 .envrc
 requests.md
 up.json
+bin
+.env
