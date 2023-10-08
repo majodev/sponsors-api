@@ -110,7 +110,8 @@ Visit the `/markdown` path for the markdown to copy/paste into readmes.
     "sponsors": [
         {
             "login": "sponsor_username",
-            "url": "sponsor_picture.png"
+            "url": "sponsor_picture.png",
+            "type": "User" // or "Organization"
         },
         [...]
     ]
@@ -123,7 +124,7 @@ Visit the `/markdown` path for the markdown to copy/paste into readmes.
 
 List in the following format:
 ```txt
-<login> <url>
+<type> <login> <url>
 ```
 
 ### `/`

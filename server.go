@@ -142,7 +142,7 @@ func (s *Server) serveTXT(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
 
 	for _, se := range s.cache {
-		fmt.Fprintf(w, `%s %s`, se.GetLogin(), se.GetAvatarURL())
+		fmt.Fprintf(w, `%s %s %s`, se.Typename, se.GetLogin(), se.GetAvatarURL())
 		fmt.Fprintf(w, "\n")
 	}
 }
@@ -171,7 +171,7 @@ func (s *Server) serveJSON(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, `{"login":"%s","sponsors":[`, s.login)
 
 	for i, se := range s.cache {
-		fmt.Fprintf(w, `{"login":"%s","url":"%s"}`, se.GetLogin(), se.GetAvatarURL())
+		fmt.Fprintf(w, `{"login":"%s","url":"%s","type":"%s"}`, se.GetLogin(), se.GetAvatarURL(), se.Typename)
 		if i < len(s.cache)-1 {
 			fmt.Fprintf(w, ",")
 		}
